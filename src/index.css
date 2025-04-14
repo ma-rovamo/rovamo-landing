@@ -1,9 +1,12 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
 
 @layer base {
   :root {
@@ -91,21 +94,16 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  body {
+    @apply bg-[#030303] text-white antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
-  }
-
-  body {
-    @apply bg-[#030303] text-white font-sans;
-    font-family: 'Space Grotesk', sans-serif;
-    scroll-behavior: smooth;
-  }
-  
-  html {
-    scroll-behavior: smooth;
   }
 }
 

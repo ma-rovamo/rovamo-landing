@@ -1,14 +1,49 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { ScrollAnimation } from '@/components/ui/scroll-animation';
+import launchImg from '@/img/launch.png';
+import elevateImg from '@/img/elevate.png';
+import empowerImg from '@/img/empower.png';
 
-const VisionCard = ({ title, description }: {
+const VisionCard = ({ title, description, image, delay }: {
   title: string;
   description: string;
+  image: string;
+  delay: number;
 }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-20%" });
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 1.1 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: {
+        duration: 1.2,
+        delay,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    }
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: delay + 0.2,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    }
+  };
+
   return (
-    <div className="relative rounded-[1.25rem] p-2 md:rounded-[1.5rem] md:p-3">
+    <div className="relative rounded-[1.25rem] p-2 md:rounded-[1.5rem] md:p-3 h-full" ref={ref}>
       <GlowingEffect
         spread={40}
         glow={true}
@@ -17,40 +52,49 @@ const VisionCard = ({ title, description }: {
         inactiveZone={0.01}
         borderWidth={3}
       />
-      <div className="relative flex flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] border-white/10 bg-black/40 p-6 shadow-sm backdrop-blur-sm">
-        <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-        <p className="text-gray-400">{description}</p>
+      <div className="relative flex flex-col h-full overflow-hidden rounded-xl border-[0.75px] border-white/10 bg-black/40 shadow-sm backdrop-blur-sm">
+        <motion.div 
+          className="w-full aspect-[4/3] overflow-hidden"
+          variants={imageVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+          />
+        </motion.div>
+        <motion.div 
+          className="flex flex-col flex-grow p-6"
+          variants={contentVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/80">{title}</h3>
+          <p className="text-gray-400 leading-relaxed">{description}</p>
+        </motion.div>
       </div>
     </div>
   );
 };
 
 const VisionSection = () => {
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.5 + i * 0.2,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    }),
-  };
-
   const visionCards = [
     {
-      title: "Launching Bold Ideas From Scratch",
-      description: "For startups aiming to make their mark, we simplify the complex process of turning concepts into successful products. From the initial idea to a full-fledged launch, we provide end-to-end guidance to create innovative solutions tailored for impact."
+      title: "Launch New Ventures with Confidence",
+      description: "We help founders and teams go from idea to launch with clarity. From AI powered strategy and UX design to rapid MVP development using no code platforms, we support your journey from zero to one.",
+      image: launchImg
     },
     {
-      title: "Elevating Products to Scale New Heights",
-      description: "When it's time to expand, we reimagine your product to meet the demands of growth. By reconfiguring designs and optimizing user experiences, we ensure your products are ready to thrive in increasingly competitive markets."
+      title: "Redesign Products for Growth",
+      description: "We partner with businesses to rethink and rebuild digital products. Whether you need a better user experience, a stronger visual identity, or a more scalable system, we align design with your growth goals.",
+      image: elevateImg
     },
     {
-      title: "Empowering Established Organizations to Evolve",
-      description: "Change within institutions requires strategic innovation. We collaborate with enterprises to design and implement cutting-edge solutions that breathe new life into their processes and operations, preparing them for a progressive future."
+      title: "Accelerate Innovation Inside Enterprises",
+      description: "We collaborate with established teams to modernize workflows, design internal tools, and lead new initiatives. Using AI, automation, and thoughtful design, we help you stay ahead in a fast changing landscape.",
+      image: empowerImg
     }
   ];
 
@@ -58,32 +102,29 @@ const VisionSection = () => {
     <section id="vision" className="bg-[#030303] relative">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] via-transparent to-rose-500/[0.02] blur-xl"></div>
       <div className="container-section relative z-10">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-              Where Vision
-            </span>
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
-              Meets Action
-            </span>
-          </h2>
-        </div>
+        <ScrollAnimation delay={0.2}>
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+                Where Vision
+              </span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+                Meets Action
+              </span>
+            </h2>
+          </div>
+        </ScrollAnimation>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {visionCards.map((card, index) => (
-            <motion.div
+            <VisionCard
               key={index}
-              custom={index}
-              variants={fadeUpVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              <VisionCard
-                title={card.title}
-                description={card.description}
-              />
-            </motion.div>
+              title={card.title}
+              description={card.description}
+              image={card.image}
+              delay={0.4 + index * 0.2}
+            />
           ))}
         </div>
       </div>

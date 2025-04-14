@@ -68,7 +68,7 @@ const services = [
     icon: Laptop,
     items: [
       "Clickable design prototypes",
-      "MVP development using tools like Bubble, FlutterFlow, Softr, and Odoo",
+      "MVP development using tools like Bubble, FlutterFlow, Softr and Odoo",
       "CRM and ERP setup using no code tools",
       "Scalable architecture for rapid iteration"
     ]
