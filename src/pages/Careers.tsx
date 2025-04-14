@@ -166,7 +166,7 @@ const Careers = () => {
               <div className="relative flex flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] border-white/10 bg-black/40 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="text-2xl font-bold mb-4 text-white">How to Apply</h2>
                 <p className="text-gray-300 mb-8">
-                  Send your CV and portfolio to <span className="text-indigo-300 font-medium">careers@rovamo.com</span> with the position title in the subject line
+                  Send your CV and portfolio to <span className="text-indigo-300 font-medium">careers@hellorovamo.com</span> with the position title in the subject line
                 </p>
                 
                 <div>
