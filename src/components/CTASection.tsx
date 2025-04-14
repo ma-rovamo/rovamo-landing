@@ -24,9 +24,7 @@ const CTASection = () => {
                 Schedule a free call and tell us about your goals. We will help you map out the right solution for your next big move.
               </p>
               <a 
-                href="https://cal.com/murtaza-akbar/15min" 
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact" 
                 className="btn inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white hover:bg-indigo-500/20 group px-6 py-3 rounded-md"
               >
                 <Calendar className="h-5 w-5 text-indigo-300" />

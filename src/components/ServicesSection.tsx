@@ -103,8 +103,16 @@ const ServicesSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] via-transparent to-rose-500/[0.02] blur-xl"></div>
       <div className="container-section relative z-10">
         <div className="max-w-3xl">
-          <h2 className="section-title text-white text-left">What We Offer</h2>
-          <p className="section-subtitle text-left">
+          <h2 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-6">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+              Our
+            </span>
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+              Services
+            </span>
+          </h2>
+          <p className="text-lg text-gray-400 max-w-3xl">
             We support businesses at every stage of their digital journey. From strategy to execution, our services are designed to help you launch faster, operate smarter, and stay ahead of the curve.
           </p>
         </div>

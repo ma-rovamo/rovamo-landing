@@ -48,109 +48,74 @@ const Navbar = () => {
   };
 
   return (
-    <nav 
-      className={cn(
-        'fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300',
-        isScrolled ? 'bg-black/90 backdrop-blur-sm py-3' : 'bg-transparent py-5'
-      )}
-    >
-      <div className="container-section !py-0 flex justify-between items-center">
-        <Link to="/" className="font-bold text-xl tracking-tight flex items-center text-white">
-          <span>ROVAMO</span>
-          <span className="ml-1 text-rovamo-blue">.</span>
-        </Link>
+    <nav className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      isScrolled ? "bg-black/80 backdrop-blur-sm border-b border-white/5" : "bg-transparent"
+    )}>
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <Link to="/" className="flex items-center">
+            <span className="text-xl font-bold text-white">ROVAMO</span>
+            <span className="text-rovamo-blue">.</span>
+          </Link>
 
-        {/* Desktop navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <div className="hidden md:flex space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              link.href.startsWith('/#') ? (
-                <a 
-                  key={link.name} 
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
-                  className="text-white/80 hover:text-rovamo-blue font-medium transition-colors"
-                >
-                  {link.name}
-                </a>
-              ) : (
-                <Link 
-                  key={link.name} 
-                  to={link.href}
-                  className="text-white/80 hover:text-rovamo-blue font-medium transition-colors"
-                >
-                  {link.name}
-                </Link>
-              )
-            ))}
-          </div>
-          <a 
-            href="https://cal.com/murtaza-akbar/15min" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white hover:bg-indigo-500/20 group px-6 py-3 rounded-md"
-          >
-            <Calendar className="h-5 w-5 text-indigo-300" />
-            Book a Call
-            <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform text-indigo-300" size={16} />
-          </a>
-        </div>
-
-        {/* Mobile navigation toggle */}
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile navigation menu */}
-      <div className={cn(
-        "fixed inset-0 bg-black/95 z-40 pt-20 px-6 transform transition-transform duration-300 ease-in-out",
-        isOpen ? "translate-x-0" : "translate-x-full"
-      )}>
-        <div className="flex flex-col space-y-8 py-8">
-          {navLinks.map((link) => (
-            link.href.startsWith('/#') ? (
-              <a 
-                key={link.name} 
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.href);
-                }}
-                className="text-xl font-medium text-white hover:text-rovamo-blue"
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link 
-                key={link.name} 
+              <Link
+                key={link.name}
                 to={link.href}
-                onClick={toggleMenu}
-                className="text-xl font-medium text-white hover:text-rovamo-blue"
+                onClick={() => handleLinkClick(link.href)}
+                className="text-sm text-white/60 hover:text-white transition-colors"
               >
                 {link.name}
               </Link>
-            )
-          ))}
-          <a 
-            href="https://cal.com/murtaza-akbar/15min" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white hover:bg-indigo-500/20 group px-6 py-3 rounded-md w-full justify-center"
+            ))}
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors text-sm"
+            >
+              <Calendar className="h-4 w-4 text-indigo-300" />
+              Book a Call
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
           >
-            <Calendar className="h-5 w-5 text-indigo-300" />
-            Book a Call
-            <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform text-indigo-300" size={16} />
-          </a>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-sm border-b border-white/5">
+          <div className="container mx-auto px-4 py-4">
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => handleLinkClick(link.href)}
+                  className="text-white/60 hover:text-white transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors"
+              >
+                <Calendar className="h-4 w-4 text-indigo-300" />
+                Book a Call
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

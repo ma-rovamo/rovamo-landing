@@ -79,7 +79,7 @@ function HeroGeometric({
     description = "Crafting exceptional digital experiences through innovative design and cutting-edge technology.",
     showCTA = true,
     ctaText = "Get Started",
-    ctaHref = "https://cal.com/murtaza-akbar/15min",
+    ctaHref = "/contact",
 }: {
     badge?: string;
     title1?: string;
@@ -153,8 +153,8 @@ function HeroGeometric({
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 md:px-6">
-                <div className="max-w-3xl mx-auto text-center">
+            <div className="container-section relative z-10">
+                <div className="max-w-3xl">
                     <motion.div
                         custom={0}
                         variants={fadeUpVariants}
@@ -174,7 +174,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
+                        <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight text-left">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
                                 {title1}
                             </span>
@@ -195,7 +195,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+                        <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl text-left">
                             {description}
                         </p>
                     </motion.div>
@@ -211,7 +211,7 @@ function HeroGeometric({
                                 href={ctaHref}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center px-6 py-3 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors duration-300 font-medium"
+                                className="inline-flex items-center px-6 py-3 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors duration-300 font-medium backdrop-blur-sm"
                             >
                                 {ctaText}
                             </a>

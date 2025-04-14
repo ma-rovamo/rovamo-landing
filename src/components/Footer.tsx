@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
@@ -12,8 +11,8 @@ const Footer = () => {
   ];
 
   const links = [
-    { name: 'LinkedIn', href: '#', icon: Linkedin },
-    { name: 'Contact', href: '#contact', icon: Mail },
+    { name: 'LinkedIn', href: 'https://pk.linkedin.com/company/rovamo-agency', icon: Linkedin },
+    { name: 'Contact', href: '/contact', icon: Mail },
     { name: 'Privacy Policy', href: '#', icon: ArrowUpRight },
   ];
 
