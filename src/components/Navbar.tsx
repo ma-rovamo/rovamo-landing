@@ -57,6 +57,16 @@ const Navbar = () => {
           <Link to="/" className="flex items-center">
             <span className="text-xl font-bold text-white">ROVAMO</span>
             <span className="text-rovamo-blue">.</span>
+            <Link 
+              to="/careers" 
+              className="ml-4 inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full hover:bg-emerald-400/20 transition-colors"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              We're Hiring
+            </Link>
           </Link>
 
           {/* Desktop Navigation */}
@@ -66,16 +76,16 @@ const Navbar = () => {
                 key={link.name}
                 to={link.href}
                 onClick={() => handleLinkClick(link.href)}
-                className="text-sm text-white/60 hover:text-white transition-colors"
+                className="text-base font-medium text-white/70 hover:text-white transition-colors"
               >
                 {link.name}
               </Link>
             ))}
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors text-base font-medium"
             >
-              <Calendar className="h-4 w-4 text-indigo-300" />
+              <Calendar className="h-5 w-5 text-indigo-300" />
               Book a Call
             </Link>
           </div>
@@ -100,16 +110,16 @@ const Navbar = () => {
                   key={link.name}
                   to={link.href}
                   onClick={() => handleLinkClick(link.href)}
-                  className="text-white/60 hover:text-white transition-colors"
+                  className="text-base font-medium text-white/70 hover:text-white transition-colors"
                 >
                   {link.name}
                 </Link>
               ))}
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors text-base font-medium"
               >
-                <Calendar className="h-4 w-4 text-indigo-300" />
+                <Calendar className="h-5 w-5 text-indigo-300" />
                 Book a Call
               </Link>
             </div>
