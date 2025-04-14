@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
@@ -80,7 +79,7 @@ function HeroGeometric({
     description = "Crafting exceptional digital experiences through innovative design and cutting-edge technology.",
     showCTA = true,
     ctaText = "Get Started",
-    ctaHref = "#contact",
+    ctaHref = "https://cal.com/murtaza-akbar/15min",
 }: {
     badge?: string;
     title1?: string;
@@ -210,6 +209,8 @@ function HeroGeometric({
                         >
                             <a
                                 href={ctaHref}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center px-6 py-3 bg-black/40 border border-white/10 text-white rounded-md hover:bg-indigo-500/20 transition-colors duration-300 font-medium"
                             >
                                 {ctaText}
