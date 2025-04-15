@@ -61,7 +61,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://linkedin.com"
+                  href="https://pk.linkedin.com/company/rovamo-agency"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-white transition-colors text-base inline-flex items-center gap-2"
