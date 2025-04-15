@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -133,7 +132,7 @@ const Careers = () => {
               <p className="section-subtitle mx-auto">Explore our current job openings and find your next opportunity</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
               {regularJobs.map((job, index) => (
                 <CareerCard 
                   key={index} 
@@ -166,7 +165,7 @@ const Careers = () => {
               <div className="relative flex flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] border-white/10 bg-black/40 p-6 shadow-sm backdrop-blur-sm">
                 <h2 className="text-2xl font-bold mb-4 text-white">How to Apply</h2>
                 <p className="text-gray-300 mb-8">
-                  Send your CV and portfolio to <span className="text-indigo-300 font-medium">careers@hellorovamo.com</span> with the position title in the subject line
+                  Send your CV and portfolio to <span className="text-indigo-300 font-medium">hr@hellorovamo.com</span> with the position title in the subject line
                 </p>
                 
                 <div>

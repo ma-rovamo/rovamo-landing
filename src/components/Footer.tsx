@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const services = [
@@ -21,10 +22,10 @@ const Footer = () => {
       <div className="container-section !py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 border-b border-white/10">
           <div>
-            <a href="#" className="font-bold text-2xl tracking-tight flex items-center">
+            <Link to="/" className="font-bold text-2xl tracking-tight flex items-center">
               <span>ROVAMO</span>
               <span className="ml-1 text-rovamo-blue">.</span>
-            </a>
+            </Link>
             <p className="mt-4 text-gray-400 max-w-md">
               We act as an extension of your team, helping you turn bold ideas into scalable digital solutions.
             </p>
@@ -52,13 +53,25 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link, index) => (
                   <li key={index}>
-                    <a 
-                      href={link.href} 
-                      className="text-gray-400 hover:text-white transition-colors flex items-center"
-                    >
-                      <link.icon className="h-4 w-4 mr-2" />
-                      {link.name}
-                    </a>
+                    {link.name === 'LinkedIn' ? (
+                      <a 
+                        href={link.href} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors flex items-center"
+                      >
+                        <link.icon className="h-4 w-4 mr-2" />
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link 
+                        to={link.href} 
+                        className="text-gray-400 hover:text-white transition-colors flex items-center"
+                      >
+                        <link.icon className="h-4 w-4 mr-2" />
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

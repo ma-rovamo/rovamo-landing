@@ -32,11 +32,9 @@ const Navbar = () => {
 
   const handleLinkClick = (href: string) => {
     if (href.startsWith('/#')) {
-      // If we're on the careers page, navigate to home first
       if (location.pathname !== '/') {
         window.location.href = href;
       } else {
-        // If we're already on home page, just scroll to the section
         const sectionId = href.split('#')[1];
         const element = document.getElementById(sectionId);
         if (element) {
@@ -91,12 +89,14 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 text-white/60 hover:text-white transition-colors"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="p-2 text-white/60 hover:text-white transition-colors"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
