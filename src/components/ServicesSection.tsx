@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Lightbulb, Laptop, PenTool, Globe } from 'lucide-react';
+import { Bot, Lightbulb, Laptop, PenTool, Globe, Archive } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { SectionAnimation } from '@/components/ui/section-animation';
 import { motion, useInView } from 'framer-motion';
@@ -65,6 +65,17 @@ const services = [
       "Workflow automation",
       "Process optimization",
       "Custom AI powered solutions"
+    ]
+  },
+  {
+    title: "Legacy System Modernisation",
+    description: "Transform outdated systems into scalable, modern digital platforms",
+    icon: Archive,
+    items: [
+      "Assess current systems and map workflows",
+      "Define to-be architecture with modern tools",
+      "Migrate legacy processes using no code and low code platforms",
+      "Optimize for scalability and maintainability"
     ]
   },
   {

@@ -15,11 +15,13 @@ const JobType = ({ children }: { children: React.ReactNode }) => (
 const CareerCard = ({ 
   title, 
   jobTypes = ['Full-time', 'Freelance', 'Remote', 'Contract'],
-  isInternship = false
+  isInternship = false,
+  applyLink
 }: { 
   title: string;
   jobTypes?: string[];
   isInternship?: boolean;
+  applyLink?: string;
 }) => {
   return (
     <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-white/10 p-2 md:rounded-[1.5rem] md:p-3">
@@ -58,7 +60,7 @@ const CareerCard = ({
           )}
           
           <a 
-            href="#apply" 
+            href={applyLink || "#apply"} 
             className="inline-flex items-center text-indigo-300 hover:text-rose-300 font-medium transition-colors group mt-2"
           >
             Apply Now
@@ -77,12 +79,26 @@ const Careers = () => {
   }, []);
 
   const regularJobs = [
-    "Business Development Manager",
-    "UX/UI Designer",
-    "Web Developer",
-    "Executive Assistant",
-    "AI Automation Developer",
-    "Business Analyst"
+    {
+      title: "Business Development Manager",
+      link: "https://airtable.com/app7RDDI9IGVFPv3B/pagGKWHuaJsdHsyS7/form"
+    },
+    {
+      title: "UX/UI Designer",
+      link: "https://airtable.com/app95ys7slzbSVreC/paglhcgueHm5IZli2/form"
+    },
+    {
+      title: "Executive Assistant",
+      link: "https://airtable.com/appdYRkZDQK8kB9Vj/pagFBCK4lCQLLUriN/form"
+    },
+    {
+      title: "Web Developer",
+      link: "https://airtable.com/appAz2Lf8WBe4Q70k/paglhcgueHm5IZli2/form"
+    },
+    {
+      title: "No Code Developer",
+      link: "https://airtable.com/appjSpnpzUiQfhwGG/paglhcgueHm5IZli2/form"
+    }
   ];
 
   return (
@@ -140,7 +156,8 @@ const Careers = () => {
               {regularJobs.map((job, index) => (
                 <CareerCard 
                   key={index} 
-                  title={job} 
+                  title={job.title}
+                  applyLink={job.link}
                 />
               ))}
               
