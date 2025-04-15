@@ -42,6 +42,19 @@ const VisionCard = ({ title, description, image, delay }: {
     }
   };
 
+  const titleVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: delay + 0.4,
+        ease: [0.21, 0.47, 0.32, 0.98]
+      }
+    }
+  };
+
   return (
     <div className="relative rounded-[1.25rem] p-2 md:rounded-[1.5rem] md:p-3 h-full" ref={ref}>
       <GlowingEffect
@@ -52,7 +65,7 @@ const VisionCard = ({ title, description, image, delay }: {
         inactiveZone={0.01}
         borderWidth={3}
       />
-      <div className="relative flex flex-col h-full overflow-hidden rounded-xl border-[0.75px] border-white/10 bg-black/40 shadow-sm backdrop-blur-sm">
+      <div className="relative flex flex-col h-full overflow-hidden rounded-xl border-[0.75px] border-white/10 bg-black/40 shadow-md backdrop-blur-sm hover:shadow-indigo-500/20 transition-all duration-500">
         <motion.div 
           className="w-full aspect-[4/3] overflow-hidden"
           variants={imageVariants}
@@ -71,8 +84,15 @@ const VisionCard = ({ title, description, image, delay }: {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/80">{title}</h3>
-          <p className="text-gray-400 leading-relaxed">{description}</p>
+          <motion.h3 
+            variants={titleVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="text-2xl md:text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300"
+          >
+            {title}
+          </motion.h3>
+          <p className="text-lg text-[#D9D9D9] leading-relaxed">{description}</p>
         </motion.div>
       </div>
     </div>
@@ -99,7 +119,7 @@ const VisionSection = () => {
   ];
 
   return (
-    <section id="vision" className="bg-[#030303] relative">
+    <section id="vision" className="bg-[#000000] relative">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] via-transparent to-rose-500/[0.02] blur-xl"></div>
       <div className="container-section relative z-10">
         <ScrollAnimation delay={0.2}>
@@ -113,6 +133,9 @@ const VisionSection = () => {
                 Meets Action
               </span>
             </h2>
+            <p className="text-xl text-[#D9D9D9] max-w-3xl leading-relaxed">
+              We help organizations turn bold ideas into real-world impact through strategic thinking, emerging technologies, and intuitive design. we partner with startups and established enterprises alike to modernize systems. Whether building from scratch or transforming legacy platforms, we help teams move faster, smarter, and more confidently toward what's next.
+            </p>
           </div>
         </ScrollAnimation>
         

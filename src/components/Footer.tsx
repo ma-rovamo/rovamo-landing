@@ -1,96 +1,116 @@
 import React from 'react';
-import { Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
+import { Linkedin, Twitter, Instagram, Dribbble } from 'lucide-react';
 
 const Footer = () => {
-  const services = [
-    { name: 'AI Consulting', href: '#services' },
-    { name: 'Product Strategy', href: '#services' },
-    { name: 'Design', href: '#services' },
-    { name: 'No Code Development', href: '#services' },
-    { name: 'Web Development', href: '#services' },
-  ];
-
-  const links = [
-    { name: 'LinkedIn', href: 'https://pk.linkedin.com/company/rovamo-agency', icon: Linkedin },
-    { name: 'Contact', href: '/contact', icon: Mail },
-    { name: 'Privacy Policy', href: '#', icon: ArrowUpRight },
-  ];
-
   return (
-    <footer className="bg-[#050505] text-white border-t border-white/5">
-      <div className="container-section !py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 border-b border-white/10">
-          <div>
-            <Link to="/" className="font-bold text-2xl tracking-tight flex items-center">
-              <span>ROVAMO</span>
-              <span className="ml-1 text-rovamo-blue">.</span>
+    <footer className="bg-black/40 backdrop-blur-sm border-t border-white/[0.02]">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <Link to="/" className="flex items-center">
+              <span className="text-2xl font-bold text-white">ROVAMO</span>
+              <span className="text-rovamo-blue">.</span>
             </Link>
-            <p className="mt-4 text-gray-400 max-w-md">
-              We act as an extension of your team, helping you turn bold ideas into scalable digital solutions.
+            <p className="text-white/60 text-base max-w-md">
+              Building the future of AI-powered innovation.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-medium mb-4">Services</h3>
-              <ul className="space-y-2">
-                {services.map((service, index) => (
-                  <li key={index}>
-                    <a 
-                      href={service.href} 
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      {service.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-medium mb-4">Connect</h3>
-              <ul className="space-y-2">
-                {links.map((link, index) => (
-                  <li key={index}>
-                    {link.name === 'LinkedIn' ? (
-                      <a 
-                        href={link.href} 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-white transition-colors flex items-center"
-                      >
-                        <link.icon className="h-4 w-4 mr-2" />
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link 
-                        to={link.href} 
-                        className="text-gray-400 hover:text-white transition-colors flex items-center"
-                      >
-                        <link.icon className="h-4 w-4 mr-2" />
-                        {link.name}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-white font-medium text-lg">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/" className="text-white/60 hover:text-white transition-colors text-base">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/#services" className="text-white/60 hover:text-white transition-colors text-base">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/#about" className="text-white/60 hover:text-white transition-colors text-base">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-white/60 hover:text-white transition-colors text-base inline-flex items-center gap-1.5">
+                  Careers
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-white/60 hover:text-white transition-colors text-base">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect */}
+          <div className="space-y-6">
+            <h3 className="text-white font-medium text-lg">Connect</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 hover:text-white transition-colors text-base inline-flex items-center gap-2"
+                >
+                  <Linkedin size={18} />
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 hover:text-white transition-colors text-base inline-flex items-center gap-2"
+                >
+                  <Twitter size={18} />
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 hover:text-white transition-colors text-base inline-flex items-center gap-2"
+                >
+                  <Instagram size={18} />
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://dribbble.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 hover:text-white transition-colors text-base inline-flex items-center gap-2"
+                >
+                  <Dribbble size={18} />
+                  Dribbble
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            © 2025 Rovamo. All rights reserved.
+
+        <div className="border-t border-white/[0.02] mt-16 pt-8">
+          <p className="text-white/40 text-sm text-center">
+            © {new Date().getFullYear()} Rovamo. All rights reserved.
           </p>
-          <div className="mt-4 md:mt-0">
-            <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="text-sm text-gray-400 hover:text-white flex items-center transition-colors"
-            >
-              Back to top <ArrowUpRight className="ml-1 h-3 w-3" />
-            </button>
-          </div>
         </div>
       </div>
     </footer>

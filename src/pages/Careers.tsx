@@ -101,19 +101,23 @@ const Careers = () => {
           
           <div className="container-section !py-0 relative z-10">
             <div className="flex flex-col items-start max-w-3xl animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight mb-6">
                 <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                  Join Our Team
+                  Join Our
+                </span>
+                <br />
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300">
+                  Team Today
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl">
-                Help us build the future of AI-powered innovation
+              <p className="text-lg text-white/70 max-w-3xl mb-8">
+                Help us build the future of AI-powered innovation. We're always looking for talented people to join our team.
               </p>
               
-              <div className="flex items-center">
-                <Clock className="mr-2 text-indigo-300" size={20} />
-                <span>We're always looking for talented people to join our team</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08]">
+                <Clock className="h-4 w-4 text-indigo-300" />
+                <span className="text-sm text-white/60 tracking-wide">Multiple Positions Available</span>
               </div>
             </div>
           </div>

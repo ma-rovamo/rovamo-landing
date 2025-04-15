@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,8 +11,16 @@ html {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: #000000;
+    --body-background: #171717;
+    --text-primary: #FFFFFF;
+    --text-body: #E9E9E9;
+    --color-primary: #007BC9;
+    --color-secondary: #0093D7;
+    --color-accent: #0BBBA9;
+    --color-error: #C62828;
+    --rovamo-blue: #007BC9;
+    --rovamo-accent: #0BBBA9;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -96,8 +105,8 @@ html {
   }
 
   body {
-    @apply bg-[#030303] text-white antialiased;
-    font-family: 'Space Grotesk', sans-serif;
+    @apply bg-[#171717] text-[#D9D9D9] antialiased;
+    font-family: 'Open Sans', sans-serif;
   }
 }
 
@@ -137,10 +146,14 @@ html {
   }
   
   .section-subtitle {
-    @apply text-lg text-white/80 max-w-3xl;
+    @apply text-lg text-white/70 max-w-3xl;
   }
 
   p {
-    @apply text-white/80;
+    @apply text-white/70;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply text-white;
 }

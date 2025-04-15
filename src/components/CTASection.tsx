@@ -20,7 +20,7 @@ const CTASection = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Let's build something meaningful together.
               </h2>
-              <p className="text-gray-300 mb-8 md:pr-6">
+              <p className="text-xl text-white/90 mb-8 md:pr-6 leading-relaxed">
                 Schedule a free call and tell us about your goals. We will help you map out the right solution for your next big move.
               </p>
               <a 
@@ -40,8 +40,8 @@ const CTASection = () => {
                   <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-500/10 backdrop-blur-sm">
                     <Calendar className="h-8 w-8 text-indigo-300" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Free Discovery Call</h3>
-                  <p className="text-gray-300 mb-4">
+                  <h3 className="text-2xl font-bold mb-3">Free Discovery Call</h3>
+                  <p className="text-lg text-white/90 mb-4 leading-relaxed">
                     No commitment, just a conversation to explore how we can help.
                   </p>
                   <span className="inline-block text-sm bg-indigo-500/10 px-3 py-1 rounded-full backdrop-blur-sm text-indigo-300">

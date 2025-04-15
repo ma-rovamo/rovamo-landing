@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Open Sans', 'sans-serif'],
+				heading: ['Open Sans', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -65,10 +68,14 @@ export default {
 				},
 				rovamo: {
 					DEFAULT: '#000000',
-					blue: '#0047FF',
-					accent: '#0032B3',
-					light: '#F5F5F5',
-					gray: '#CCCCCC'
+					blue: '#007BC9',
+					secondary: '#0093D7',
+					accent: '#0BBBA9',
+					error: '#C62828',
+					light: '#E9E9E9',
+					gray: '#CCCCCC',
+					background: '#171717',
+					text: '#E9E9E9'
 				}
 			},
 			borderRadius: {
