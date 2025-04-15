@@ -165,6 +165,7 @@ const Careers = () => {
                 title="Digital Talent Internship Program" 
                 jobTypes={['Internship', 'Remote']}
                 isInternship={true}
+                applyLink="https://airtable.com/appkOEtBI53eMKJML/pagNsOu8o84mpiuY8/form"
               />
             </div>
           </div>
